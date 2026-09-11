@@ -1,80 +1,74 @@
 # SecondWorks
 
-生成AI・ローカルLLM・RAGを活用した、小規模な業務支援ツールやWebアプリを制作しています。
+## 業務課題を整理し、AIで使える小さな仕組みに落とし込みます
 
-本業では15年以上、施設管理に携わっています。設備管理で培った「問題を整理する」「安全性と優先順位を判断する」「運用まで考える」という視点を、ソフトウェア開発にも活かしています。
+生成AI・ローカルLLM・RAGを活用した、業務効率化ツールと小規模Webアプリを設計・実装しています。
 
-## What I build
+- 業務文章の要約・改善・タスク抽出
+- PDF / TXTなどの業務文書検索と根拠付き回答
+- ローカルLLMを利用した、データを外部へ出しにくい構成
+- Python / FastAPI、Next.js / Reactによる業務ツール
+- Cloudflare Workersを使った公開・運用設計
 
-- 生成AIを利用した業務効率化ツール
-- RAG / 文書検索システム
-- ローカルLLMを利用したアプリケーション
-- Python / FastAPIによる小規模Web API・業務ツール
-- Next.js / React / TypeScriptによるWebアプリ
-- Cloudflareを利用したデプロイ・公開
-- GitHub Issue / Pull Request / CIを利用した開発フロー
+本業では15年以上、施設管理に携わっています。現場で培った「問題を整理する」「安全性と優先順位を判断する」「運用まで考える」という視点を、AIシステムの設計・実装にも活かしています。
 
-## Portfolio
+## 代表ポートフォリオ
 
 ### AI Business Assistant
-業務文章の要約・文章改善・タスク抽出を行う生成AI Webアプリです。
 
-- Next.js / React / TypeScript
-- OpenAI互換 Chat Completions API
-- Cloudflare Workers
-- 入力検証、エラー処理、レスポンシブUI
-- 秘密情報の分離、Rate Limiting
+業務報告・メール・議事録などを入力し、要約・文章改善・タスク抽出を行うWebアプリです。
 
-Repository: https://github.com/second-works/ai-business-assistant
+- [デモを開く](https://ai-business-assistant.katamachi.workers.dev)
+- [リポジトリを見る](https://github.com/second-works/ai-business-assistant)
+
+Next.js / React / TypeScript、OpenAI互換API、Cloudflare Workers（OpenNext）を使用しています。入力検証、エラー表示、レスポンシブUI、秘密情報の分離、Rate Limitingまで実装しています。
 
 ### Local RAG Document Assistant
-PDF/TXTの業務文書を検索し、文書名・ページ・根拠を示して回答するRAGシステムです。
 
-- RAG / Vector Search
-- PDF/TXT文書処理
-- ローカルLLM / OpenAI互換API
-- Cloudflare Workers / R2
-- 回答不能処理によるハルシネーション抑制
+PDF / TXTの業務文書を検索し、文書名・ページ・根拠文章を示して回答するRAGシステムです。
 
-Repository: https://github.com/second-works/local-rag-document-assistant
+- [デモを開く](https://local-rag-document-assistant.katamachi.workers.dev)
+- [リポジトリを見る](https://github.com/second-works/local-rag-document-assistant)
+
+文書登録、ページ情報を保ったチャンク化、Embedding / Vector Search / Generationの分離、検索スコア閾値による回答不能処理を実装しています。ローカルLLM接続とCloudflare Tunnel / Accessを想定し、公開環境ではデモ文書への根拠付きフォールバックも用意しています。
 
 ### System Monitor Dashboard
-ローカルPCのCPU・メモリ・ディスク・OS・Uptimeをブラウザから確認するダッシュボードです。
 
-- Python / FastAPI
-- psutil
-- HTML / CSS / JavaScript
-- pytest
-- GitHub Actions
+ローカルPCのCPU・メモリ・ディスク・OS・Uptimeをブラウザで確認するダッシュボードです。
 
-Repository: https://github.com/second-works/system-monitor-dashboard
+- [リポジトリを見る](https://github.com/second-works/system-monitor-dashboard)
 
-## Development style
+Python / FastAPI / psutilでAPIを構築し、5秒間隔の自動更新、API障害時のエラー表示、pytest、GitHub Actions CIを実装しています。機能範囲をV1に限定し、運用確認できる小さなWebアプリとしてまとめています。
 
-実装速度だけでなく、後から確認・修正できる開発工程を重視しています。
+## 対応できる開発
 
-`要件整理 → 設計・計画 → GitHub Issue → 1 Issue / 1 PR → CI → AIコードレビュー → 修正 → マージ → デプロイ`
+- 業務フローのヒアリングと要件整理
+- 文章作成・文書検索などのAI活用
+- RAGの文書取込・検索・根拠表示
+- ローカルLLM / OpenAI互換APIの接続
+- Python / FastAPIのAPI・業務ツール
+- Next.js / React / TypeScriptのWeb UI
+- Cloudflare Workersへの公開
+- 入力検証、エラー処理、秘密情報分離、簡易的なRate Limiting
+- GitHub Issue / Pull Request / CIを使った変更管理
 
-AIにすべてを任せるのではなく、要件、変更範囲、テスト条件、完了条件を明確にし、GitHub上に判断と実装履歴を残すようにしています。
+## 開発の進め方
 
-## Skills
+要件と完了条件を先に整理し、変更範囲を小さく保ちながら進めます。
 
-**Languages / Frameworks**  
-Python / FastAPI / TypeScript / JavaScript / Next.js / React
+`要件整理 → 設計・計画 → Issue → 1 Issue / 1 PR → CI → レビュー → 修正 → マージ → 動作確認`
 
-**AI / LLM**  
-ChatGPT / Codex / RAG / Local LLM / OpenAI-compatible API / MCP
+実装済みの機能・未実装の範囲・運用上の制約を分けて説明し、後から確認・修正できる履歴をGitHubに残します。
 
-**Platform / Tools**  
-Git / GitHub / GitHub Actions / Docker / Linux / Cloudflare
+## 使用技術
 
-## Current focus
+- **AI / LLM:** 生成AI、RAG、ローカルLLM、OpenAI互換API、MCP
+- **Web / API:** Python、FastAPI、TypeScript、Next.js、React
+- **Platform:** Cloudflare Workers、Cloudflare Tunnel、Docker、Linux
+- **Quality:** Git、GitHub Actions、pytest、型チェック
 
-- 生成AIを利用した業務効率化
-- ローカルLLMとクラウドサービスの安全な連携
-- RAGによる業務文書検索
-- AI支援開発フローの改善
+## ご相談について
 
----
+「この業務をAIで効率化できるか整理したい」「社内文書を検索できるようにしたい」「小さな業務ツールをまず試したい」といったご相談に対応します。
 
-クラウドワークス等で、AI活用・Python・RAG・業務効率化に関する小規模案件への対応を目指しています。
+ご相談の際は、対象業務・入力データ・期待する成果・希望納期をお知らせください。小さく検証できる範囲を整理し、実装・テスト・公開方法まで提案します。
