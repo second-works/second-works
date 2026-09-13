@@ -32,6 +32,15 @@ PDF / TXTの業務文書を検索し、文書名・ページ・根拠文章を�
 
 文書登録、ページ情報を保ったチャンク化、Embedding / Vector Search / Generationの分離、検索スコア閾値による回答不能処理を実装しています。ローカルLLM接続とCloudflare Tunnel / Accessを想定し、公開環境ではデモ文書への根拠付きフォールバックも用意しています。
 
+### Facility AI Assistant
+
+施設管理の現場で、設備マニュアル・点検基準・トラブル記録から関連箇所を探し、文書名・ページ・根拠文章を示す業務特化AIのMVPです。危険作業や法令判断を断定せず、管理者・有資格者・専門業者への確認につなげる安全ガードを組み込んでいます。
+
+- [デモを開く](https://facility-ai-assistant.pages.dev/)
+- [リポジトリを見る](https://github.com/second-works/facility-ai-assistant)
+
+公開デモは、サーバー・データベース・Secretsを必要としない静的HTML / JavaScript構成をCloudflare Pagesへ配置しています。実データを公開せずに、検索・出典表示・安全な確認フローを低コストで共有・検証できる構成です。OpenAI互換Local LLM接続用アダプターも実装しており、接続先のallowlist、APIキー、timeout、応答形式を検証し、未設定・失敗時は根拠付きフォールバックへ戻します。現在の公開デモは架空サンプル文書とretrieval fallbackで、実Gemma・本番文書・設備操作は未接続です。
+
 ### System Monitor Dashboard
 
 ローカルPCのCPU・メモリ・ディスク・OS・Uptimeをブラウザで確認するダッシュボードです。
