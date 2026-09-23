@@ -48,7 +48,7 @@ PDF / TXTの業務文書を検索し、文書名・ページ・根拠文章を�
 - [公開デモを見る](https://web-demo.amirkatamachi.com)
 - [ソースリポジトリを見る（非公開）](https://github.com/second-works/cloudflare-decap-template)
 
-公開デモでサイトのデザインとページ構成を確認できます。ソースリポジトリは非公開です。CMSの認証・投稿・Pages反映のE2E確認状況については、実装済み機能と区別して案内します。
+公開デモではサイトのデザインとページ構成を確認できます。ソースコードは非公開のため、公開成果物はデモサイトです。
 
 ### System Monitor Dashboard
 
