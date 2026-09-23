@@ -41,6 +41,15 @@ PDF / TXTの業務文書を検索し、文書名・ページ・根拠文章を�
 
 公開デモは、サーバー・データベース・Secretsを必要としない静的HTML / JavaScript構成をCloudflare Pagesへ配置しています。実データを公開せずに、検索・出典表示・安全な確認フローを低コストで共有・検証できる構成です。OpenAI互換Local LLM接続用アダプターも実装しており、接続先のallowlist、APIキー、timeout、応答形式を検証し、未設定・失敗時は根拠付きフォールバックへ戻します。現在の公開デモは架空サンプル文書とretrieval fallbackで、実Gemma・本番文書・設備操作は未接続です。
 
+### Cloudflare Decap CMS template
+
+架空の地域密着型リフォーム会社サイトを題材に、Astro / Decap CMS / Cloudflare Pagesを組み合わせたWebサイトテンプレートです。Premium Modernのデザインとレスポンシブ表示を実装し、News / WorksをCMSから編集する構成を用意しています。
+
+- [公開デモを見る](https://web-demo.amirkatamachi.com)
+- [ソースリポジトリを見る（非公開）](https://github.com/second-works/cloudflare-decap-template)
+
+公開デモでサイトのデザインとページ構成を確認できます。ソースリポジトリは非公開です。CMSの認証・投稿・Pages反映のE2E確認状況については、実装済み機能と区別して案内します。
+
 ### System Monitor Dashboard
 
 ローカルPCのCPU・メモリ・ディスク・OS・Uptimeをブラウザで確認するダッシュボードです。
